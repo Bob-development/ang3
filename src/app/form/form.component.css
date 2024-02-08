@@ -1,0 +1,33 @@
+.form-wrapper{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.example-form{
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.label-price-wrapper{
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sendBtn-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.sendBtn{
+    width: 150px;
+    height: 40px;
+}
+
+.isSale{
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 500;
+}

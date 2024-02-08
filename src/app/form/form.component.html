@@ -1,1 +1,40 @@
-<p>form works!</p>
+<div class="form-wrapper">
+    <form #form="ngForm" (submit)="getFormData(form.value)" class="example-form">
+        <div class="label-price-wrapper">
+            <mat-form-field class="example-full-width">
+              <mat-label>Product Label</mat-label>
+              <input name="label" ngModel matInput>
+            </mat-form-field>
+        
+            <mat-form-field class="example-full-width">
+                <mat-label>Product Price</mat-label>
+                <input name="price" ngModel matInput type="number" value="0">
+            </mat-form-field>
+        </div>
+      
+        <mat-form-field class="example-full-width">
+          <mat-label>Description</mat-label>
+          <textarea name="description" ngModel matInput></textarea>
+        </mat-form-field>
+
+        <div class="isSale-wrapper">
+            <mat-checkbox name="isSale" ngModel class="example-margin">
+                <div class="isSale">Checked</div>
+            </mat-checkbox>
+        </div>
+
+        <!-- <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field> -->
+    
+        <div class="sendBtn-wrapper">
+            <button mat-raised-button color="accent" class="sendBtn">Accent</button>
+        </div>
+        
+    </form>
+</div>
+
