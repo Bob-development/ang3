@@ -11,7 +11,8 @@ import { FormComponent } from './components/form/form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
-import { ProductsComponent } from './components/products/products.component';
+import { DiscountComponent } from './components/discount/discount.component';
+import { ProductComponent } from './components/product/product.component';
 
 //ANG MATERIALS
 import { MatInputModule } from '@angular/material/input';
@@ -21,8 +22,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { DiscountComponent } from './components/discount/discount.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 @NgModule({
   declarations: [
@@ -31,8 +33,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    ProductsComponent,
-    DiscountComponent
+    DiscountComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
   ],
   providers: [
     provideAnimationsAsync(),

@@ -1,0 +1,35 @@
+<mat-accordion>
+    <ng-container *ngFor="let product of productService.getProducts()">
+
+        <mat-expansion-panel class="product" (opened)="panelOpenState = true" 
+                             (closed)="panelOpenState = false">
+    
+            <mat-expansion-panel-header>
+                <mat-panel-title class="label inAddition">
+                  {{product.label}}
+                </mat-panel-title>
+    
+                <mat-panel-description>
+                  Click to get all info about product
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+          
+            <div class="description inAddition">Description: {{product.description}}</div>
+            
+            <div *ngIf="!product.isSale" class="price inAddition">Price: {{product.price}}$</div>
+            
+            <div *ngIf="product.isSale" class="price inAddition"> 
+                <div class="newPrice">Price: 
+                    <div id="crossedOut">{{product.price}}$</div> -> 
+                    
+                    <div>{{discountService.getNewPriceWithDiscount(product.price)}}$</div>
+                </div>
+            </div>
+            
+            <div class="dateFrom inAddition">From: {{product.dateFrom}}</div>
+            
+            <div class="dateTo inAddition">To: {{product.dateTo}}</div>
+        </mat-expansion-panel>
+    </ng-container>
+</mat-accordion>
+

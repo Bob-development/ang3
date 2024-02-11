@@ -1,0 +1,26 @@
+.product{
+    background-color: rgb(169, 205, 237);
+}
+
+.inAddition{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: rgb(98, 100, 102);
+}
+
+.label{
+    margin: 0;
+    color: black;
+}
+
+#crossedOut{
+    text-decoration: line-through;
+    font-size: 15px;
+}
+
+.newPrice{
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+}

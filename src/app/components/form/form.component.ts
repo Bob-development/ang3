@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ProductService } from '../../services/product.service';
 
 
 @Component({
@@ -9,9 +10,11 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 
 export class FormComponent {
-  public isSale: boolean = false;
+  public isSaleActive: boolean = false;
 
-  constructor(){}
+  constructor(
+    public productService: ProductService
+  ){}
 
   public range = new FormGroup({
     from: new FormControl<Date | null>(null),
@@ -19,17 +22,29 @@ export class FormComponent {
   });
 
   public createData(form: any){
-    const firstDate = `${this.range.get('from').value}`.split(' ');
-    const lastDate = `${this.range.get('to').value}`.split(' ');
+    const firstDate = this.range.get('from').value ? `${this.range.get('from').value}`.split(' ') : null;
+    const lastDate = this.range.get('to').value ? `${this.range.get('to').value}`.split(' ') : null;    
+    
+    if(
+      form.label.length > 0 &&
+      form.price.length !== '' &&
+      form.description.length > 0 &&
+      firstDate !== null &&
+      lastDate !== null
+      ){        
+        this.productService.assignNewProductProp('label', form.label);
+        this.productService.assignNewProductProp('price', +form.price);
+        this.productService.assignNewProductProp('description', form.description);
+        this.productService.assignNewProductProp('dateFrom', `${this.transformDate(firstDate)}`);
+        this.productService.assignNewProductProp('dateTo', `${this.transformDate(lastDate)}`);
 
-    form['dateFrom'] = this.transformDate(firstDate);
-    form['dateTo'] = this.transformDate(lastDate);
-
-    console.log(form);
+        this.productService.addProduct();
+      }
   }
 
   public toogleDiscountInput(){
-    this.isSale = !this.isSale;
+    this.isSaleActive = !this.isSaleActive;
+    this.productService.assignNewProductProp('isSale', false);
   }
 
   public transformDate(date: string[]){
