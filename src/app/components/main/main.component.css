@@ -1,0 +1,12 @@
+.main{
+    height: 70%;
+    background-color: darkmagenta;
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.tabs-wrapper{
+    width: 100%;
+}

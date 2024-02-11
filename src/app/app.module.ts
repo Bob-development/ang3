@@ -7,19 +7,22 @@ import { AppRoutingModule } from './app-routing.module';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
-import { FormComponent } from './form/form.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { MainComponent } from './main/main.component';
-import { ProductsComponent } from './products/products.component';
+import { FormComponent } from './components/form/form.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MainComponent } from './components/main/main.component';
+import { ProductsComponent } from './components/products/products.component';
 
 //ANG MATERIALS
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { DiscountComponent } from './components/discount/discount.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    ProductsComponent
+    ProductsComponent,
+    DiscountComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatCheckboxModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTabsModule,
+    MatIconModule
   ],
   providers: [
     provideAnimationsAsync(),
